@@ -1,0 +1,42 @@
+﻿@model ProyectoIntegrador.Models.Autor
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center><h1>Detalles del autor</h1>
+</center>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PrimerNombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrimerNombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PrimerApellido)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrimerApellido)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DirectorioAutor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DirectorioAutor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Bibliografia)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Bibliografia)
+        </dd>
+    </dl>
+</div>
+<div class="row justify-content-center"> 
+    
+    <a class="btn btn-info"  asp-action="Index">Ver lista de autores</a>
+</div>

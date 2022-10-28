@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ProyectoIntegrador.Models.Lector>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<seccion class="row justify-content-center">
+    <div class="container  p-4 tarjeta">
+        <seccion class="row justify-content-center">
+            <div class=" container" >
+
+                <div class="row justify-content-center" >
+                    <h2 class="TituloSeccion">Lectores registrados</h2>
+                </div>
+<hr>
+<div class="mb-3">
+    <a  class="btn btn-info" asp-action="Create">Crear nuevo</a>
+     </div>
+            </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimerNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimerApellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DirectorioFoto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Institucion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimerNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimerApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DirectorioFoto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Institucion.NombreInstitucion)
+            </td>
+            <td>
+                <a class="text-info" asp-action="Edit" asp-route-id="@item.LectorID">Editar</a> |
+                <a class="text-info" asp-action="Details" asp-route-id="@item.LectorID">Detalles</a> |
+                <a class="text-info" asp-action="Delete" asp-route-id="@item.LectorID">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

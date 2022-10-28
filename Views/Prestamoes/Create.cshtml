@@ -1,0 +1,59 @@
+﻿@model ProyectoIntegrador.Models.Prestamo
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center><h1>Ingreso de prestamo</h1></center>
+<hr />
+ <seccion class="row justify-content-center">
+  <div class="container  p-4 tarjeta">
+
+<form asp-action="Create">
+<div class="row">
+    <div class="col">
+        
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FechaPrestamo" class="control-label"></label>
+                <input asp-for="FechaPrestamo" class="form-control" />
+                <span asp-validation-for="FechaPrestamo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaDevolucion" class="control-label"></label>
+                <input asp-for="FechaDevolucion" class="form-control" />
+                <span asp-validation-for="FechaDevolucion" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="EstadoPrestamo" /> @Html.DisplayNameFor(model => model.EstadoPrestamo)
+                </label>
+            </div>
+             </div>
+         <div class="col">
+            <div class="form-group">
+                <label asp-for="EjemplarID" class="control-label"></label>
+                <input asp-for="EjemplarID" class="form-control" />
+                <span asp-validation-for="EjemplarID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LectorID" class="control-label"></label>
+                <input asp-for="LectorID" class="form-control" />
+                <span asp-validation-for="LectorID" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row justify-content-between">
+                    <div class="form-group">
+                        <input type="submit" value="Agregar nuevo prestamo" class="btn btn-info" />
+                    </div>
+                    <div>
+<div>
+    <a class="btn btn-info"asp-action="Index">Ver lista de prestamos</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,96 @@
+﻿@model IEnumerable<ProyectoIntegrador.Models.Titulo>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<seccion class="row justify-content-center">
+    <div class="container  p-4 tarjeta">
+        <seccion class="row justify-content-center">
+            <div class=" container" >
+
+                <div class="row justify-content-center" >
+                    <h2 class="TituloSeccion">Títulos registrados</h2>
+                </div>
+                <hr>
+                <div class="mb-3">
+                    <a class="btn btn-info" asp-action="Create">Agregar titulo</a>
+                </div>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Portada del título
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nombre)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ISBN)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Edicion)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Cantidad)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Pais)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Area)
+                        </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                       <center><img src="@Html.DisplayFor(modelItem=> item.DirectorioPortada)" style="width: 80px" /></center> 
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ISBN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Edicion)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cantidad)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Pais.NombrePais)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Area.NombreArea)
+                    </td>
+                    <td>
+                        <a class="text-info" asp-action="Edit" asp-route-id="@item.TituloID">Editar</a> |
+                        <a class="text-info" asp-action="Details" asp-route-id="@item.TituloID">Detalles</a> |
+                        <a class="text-info" asp-action="Delete" asp-route-id="@item.TituloID">Eliminar</a>
+                    </td>
+                </tr>
+    }
+                </tbody>
+            </table>
+
+
+            </section>
+</div>
+</seccion>

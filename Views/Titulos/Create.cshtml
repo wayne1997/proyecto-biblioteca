@@ -1,0 +1,87 @@
+﻿@model ProyectoIntegrador.Models.Titulo
+
+@{
+    ViewData["Title"] = "Ingresar un nuevo título";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center><h1>Ingreso de títulos</h1></center>
+<hr />
+ <seccion class="row justify-content-center">
+  <div class="container  p-4 tarjeta">
+     <form asp-action="Create" method="post" enctype="multipart/form-data">
+         <div class="row">
+             <div class="col">
+                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                 <div class="form-group">
+                     <label asp-for="Nombre" class="control-label"> Nombre del título</label>
+                     <input asp-for="Nombre" class="form-control" />
+                     <span asp-validation-for="Nombre" class="text-danger"></span>
+                 </div>
+                 <div class="form-group">
+                     <label asp-for="ISBN" class="control-label">Código del título</label>
+                     <input asp-for="ISBN" class="form-control" />
+                     <span asp-validation-for="ISBN" class="text-danger"></span>
+                 </div>
+                 <div class="form-group">
+                     <label asp-for="Edicion" class="control-label">Edición</label>
+                     <input asp-for="Edicion" class="form-control" />
+                     <span asp-validation-for="Edicion" class="text-danger"></span>
+                 </div>
+                 <div class="form-group">
+                     <label asp-for="Fecha_lanzamiento" class="control-label">Fecha de lanzamiento</label>
+                     <input asp-for="Fecha_lanzamiento" class="form-control" />
+                     <span asp-validation-for="Fecha_lanzamiento" class="text-danger"></span>
+                 </div>
+                 <div class="form-group">
+                     <label asp-for="Fecha_lanzamiento" class="control-label">Imagen de Portada</label>
+                     <input type="file" asp-for="Fecha_lanzamiento" class="" name="portadaLibro"/>
+                     
+                 </div>
+
+             </div>
+         <div class="col">
+            <div class="form-group">
+                <label asp-for="Cantidad" class="control-label">Cantidad de libros</label>
+                <input asp-for="Cantidad" class="form-control" />
+                <span asp-validation-for="Cantidad" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PaisID" class="control-label">Pais de impresión</label>
+                <select asp-for="PaisID" class ="form-control" asp-items="ViewBag.PaisID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CiudadID" class="control-label">Ciudad de impresión</label>
+                <select asp-for="CiudadID" class ="form-control" asp-items="ViewBag.CiudadID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AreaID" class="control-label">Área a la que pertenece el libro (Dewey)</label>
+                <select asp-for="AreaID" class ="form-control" asp-items="ViewBag.AreaID"></select>
+            </div>
+         </div>
+         </div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label">Descripción</label>
+                <textarea asp-for="Descripcion" class="form-control" ></textarea>
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="row justify-content-between">
+                    <div class="form-group">
+                        <input type="submit" value="Agregar nuevo título" class="btn btn-info" />
+                    </div>
+                    <div>
+                        <a class="btn btn-info" asp-action="Index">Ver lista de títulos</a>
+                    </div>
+            </div>
+           
+        </form>
+  </div>
+ </seccion>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

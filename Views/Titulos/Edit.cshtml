@@ -1,0 +1,97 @@
+﻿@model ProyectoIntegrador.Models.Titulo
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<center>
+<h1>Editar información del título</h1>
+<hr/>
+</center>
+
+    
+<form asp-action="Edit">
+      <div class="row justify-content-center">
+        <div class="col">
+      
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                     <input type="hidden" asp-for="TituloID" />
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label">Nombre del título</label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+            <div class="form-group">
+                <label asp-for="ISBN" class="control-label">Código ISBN</label>
+                <input asp-for="ISBN" class="form-control" />
+                <span asp-validation-for="ISBN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Edicion" class="control-label">Edición</label>
+                <input asp-for="Edicion" class="form-control" />
+                <span asp-validation-for="Edicion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha_lanzamiento" class="control-label"></label>
+                <input asp-for="Fecha_lanzamiento" class="form-control" />
+                <span asp-validation-for="Fecha_lanzamiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cantidad" class="control-label"></label>
+                <input asp-for="Cantidad" class="form-control" />
+                <span asp-validation-for="Cantidad" class="text-danger"></span>
+            </div>
+       </div>
+       <div class="col">
+            <div class="form-group">
+                <label asp-for="DirectorioPortada" class="control-label"></label>
+                <input asp-for="DirectorioPortada" class="form-control" />
+                <span asp-validation-for="DirectorioPortada" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <label asp-for="PaisID" class="control-label">País de impresión</label>
+                <select asp-for="PaisID" class="form-control" asp-items="ViewBag.PaisID"></select>
+                <span asp-validation-for="PaisID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CiudadID" class="control-label">Ciudad de impresión</label>
+                <select asp-for="CiudadID" class="form-control" asp-items="ViewBag.CiudadID"></select>
+                <span asp-validation-for="CiudadID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AreaID" class="control-label">Área del título</label>
+                <select asp-for="AreaID" class="form-control" asp-items="ViewBag.AreaID"></select>
+                <span asp-validation-for="AreaID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UrlReview" class="control-label">Video Review</label>
+                <input asp-for="UrlReview" class="form-control" asp-items="ViewBag.UrlReview"/>
+                <span asp-validation-for="UrlReview" class="text-danger"></span>
+            </div>
+             
+        </div>
+
+    </div>  
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label">Descripción</label>
+                <textarea asp-for="Descripcion" class="form-control" rows="5" ></textarea>
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="row justify-content-between">
+            <div class="form-group">
+                <input type="submit" value="Guardar cambios" class="btn btn-info" />
+            </div>
+            <div>
+                 <a class="btn btn-info" asp-action="Index">Regresar a la lista de títulos</a>
+            </div>
+            </div>
+</form>
+    
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

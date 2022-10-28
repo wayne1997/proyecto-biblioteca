@@ -1,0 +1,46 @@
+﻿@model ProyectoIntegrador.Models.Autor
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center><h1>Eliminar Autor</h1>
+<hr>
+<h3 class="text-danger">¿Está seguro de querer eliminar este autor?</h3>
+</center>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PrimerNombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrimerNombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PrimerApellido)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrimerApellido)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DirectorioAutor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DirectorioAutor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Bibliografia)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Bibliografia)
+        </dd>
+    </dl>
+    <div class="row justify-content-center">
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="AutorID" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a class="btn btn-info"  asp-action="Index">Ver lista de autores</a>
+    </form>
+</div>

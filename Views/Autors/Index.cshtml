@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ProyectoIntegrador.Models.Autor>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<seccion class="row justify-content-center">
+    <div class="container  p-4 tarjeta">
+        <seccion class="row justify-content-center">
+            <div class=" container" >
+
+                <div class="row justify-content-center" >
+                    <h2 class="TituloSeccion">Lista de autores</h2>
+                </div>
+                <hr>
+                <div class="mb-3">
+                    <a class="btn btn-info" asp-action="Create">Agregar nuevo</a>
+                </div>
+            </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimerNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrimerApellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DirectorioAutor)
+            </th>
+            <th>
+                Bibliografía
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimerNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrimerApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DirectorioAutor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bibliografia)
+            </td>
+            <td>
+                <a class="text-info" asp-action="Edit" asp-route-id="@item.AutorID">Editar</a> |
+                <a class="text-info"  asp-action="Details" asp-route-id="@item.AutorID">Detalles</a> |
+                <a class="text-info"  asp-action="Delete" asp-route-id="@item.AutorID">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

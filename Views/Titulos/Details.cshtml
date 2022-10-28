@@ -1,0 +1,89 @@
+﻿@model ProyectoIntegrador.Models.Titulo
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<center>
+<h1>Detalles del título</h1>
+<hr>
+</center>
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Portada
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Html.DisplayFor(model => model.DirectorioPortada)" style="width: 100px" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ISBN)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ISBN)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Edicion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Edicion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecha_lanzamiento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fecha_lanzamiento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pais)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pais.NombrePais)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ciudad.NombreCiudad)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Area)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Area.NombreArea)
+        </dd>
+
+        <dt class="col-sm-2">
+           Video de referencia
+        </dt>
+        <dd class="col-sm-8">
+            <center>
+                <iframe width="560" height="315" src="@Html.DisplayFor(model => model.UrlReview)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </center>
+        </dd>
+    </dl>
+</div>
+<center>
+    <div class="row justify-content-center">
+        <a class="btn btn-info" asp-action="Index">Ver lista de títulos</a>
+    </div>
+</center>
+

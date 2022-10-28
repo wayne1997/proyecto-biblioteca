@@ -1,0 +1,68 @@
+﻿@model ProyectoIntegrador.Models.Lector
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center><h1>Crear lector</h1></center>
+<hr />
+<div class="row">
+    <div class="col">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="LectorID" class="control-label">Cédula del lector</label>
+                <input asp-for="LectorID" class="form-control" />
+                <span asp-validation-for="LectorID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PrimerNombre" class="control-label"></label>
+                <input asp-for="PrimerNombre" class="form-control" />
+                <span asp-validation-for="PrimerNombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrimerApellido" class="control-label"></label>
+                <input asp-for="PrimerApellido" class="form-control" />
+                <span asp-validation-for="PrimerApellido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefono" class="control-label"></label>
+                <input asp-for="Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            </div>
+         <div class="col">
+            <div class="form-group">
+                <label asp-for="Correo" class="control-label"></label>
+                <input asp-for="Correo" class="form-control" />
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DirectorioFoto" class="control-label"></label>
+                <input asp-for="DirectorioFoto" class="form-control" />
+                <span asp-validation-for="DirectorioFoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InstitucionID" class="control-label"></label>
+                <select asp-for="InstitucionID" class ="form-control" asp-items="ViewBag.InstitucionID"></select>
+            </div>
+
+             <div class="row justify-content-between">
+                    <div class="form-group">
+                        <input type="submit" value="Agregar nuevo lector" class="btn btn-info" />
+                    </div>
+                    <div>
+<div>
+        </form>
+    </div>
+</div>
+
+    <a class="btn btn-info" asp-action="Index">Ver lista de lectores</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

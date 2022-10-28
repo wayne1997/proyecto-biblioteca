@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <UserSecretsId>aspnet-ProyectoIntegrador-D4794E9D-DC6C-434A-87AE-BBFAE9C4D184</UserSecretsId>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <None Update="app.db" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\ManageUsersViewModel.cs" />
+    <Compile Remove="Controllers\ManagerUser.cs" />
+    <Compile Remove="Controllers\TituloController.cs" />
+    <Compile Remove="Areas\Empleado\controllers\HomeController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Areas\Empleado\controllers\Index.cshtml" />
+    <Content Remove="Areas\Empleado\controllers\_ViewStart.cshtml" />
+    <Content Remove="Views\Titulos\Delete.cshtml" />
+    <Content Remove="Views\Pais\Details.cshtml" />
+    <Content Remove="Views\Pais\Edit.cshtml" />
+    <Content Remove="Views\Pais\Index.cshtml" />
+    <Content Remove="Views\Lectors\Details.cshtml" />
+    <Content Remove="Views\Lectors\Edit.cshtml" />
+    <Content Remove="Views\Lectors\Index.cshtml" />
+    <Content Remove="Views\Ejemplars\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Administrador\" />
+    <Folder Include="Areas\Empleado\Modelos\" />
+    <Folder Include="Areas\Empleado\Views\Shared\" />
+    <Folder Include="Views\Titulos\" />
+    <Folder Include="Views\Inicio\" />
+    <Folder Include="Areas\Empleado\controllers\" />
+    <Folder Include="Views\Pais\" />
+    <Folder Include="Views\Lectors\" />
+    <Folder Include="Views\Ejemplars\" />
+    <Folder Include="Views\Ciudads\" />
+    <Folder Include="Views\Prestamoes\" />
+    <Folder Include="Areas\Identity\Pages\Shared\" />
+    <Folder Include="wwwroot\PortadasLibros\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\images\Logo2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>
